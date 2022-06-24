@@ -5,6 +5,41 @@ import { Link } from "react-router-dom";
 
 import AppContext from '../../Context/AppContext';
 
+function MyVerticallyCenteredModal(props) {
+  const { addSubmitted } = useContext(AppContext);
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      {addSubmitted ? (
+        <><Modal.Header closeButton>
+          <Modal.Title id="example-custom-modal-styling-title">
+            Task criada
+          </Modal.Title>
+        </Modal.Header><Modal.Body>
+            <p>
+              Task criada com sucesso!
+            </p>
+          </Modal.Body></>
+      ) : (
+        <><Modal.Header closeButton>
+            <Modal.Title id="example-custom-modal-styling-title">
+              Error
+            </Modal.Title>
+          </Modal.Header><Modal.Body>
+              <p>
+                confira se todos os campos foram inseridos!
+              </p>
+            </Modal.Body></>
+      )}
+      
+    </Modal>
+  );
+}
+
 
 function AddTasks() {
   const { setAddSubmitted, newTask, setNewTask } = useContext(AppContext);
