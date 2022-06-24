@@ -9,7 +9,7 @@ function Home() {
     <Container>
       <div style={{ display: 'flex', justifyContent: "space-between", marginTop: "40px", marginBottom: "20px"}}>
           <h1>Minhas Tasks</h1>
-          <Link to="/Adicionar">
+          <Link to="/adicionar">
             <Button variant="dark">
               Adicionar Task
             </Button>

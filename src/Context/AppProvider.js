@@ -4,6 +4,12 @@ import { getTasks } from '../Services/FetchApi';
 
 function AppProvider({ children }) {
   const [allTasks, setAlLTasks] = useState({});
+  const [addSubmitted, setAddSubmitted] = useState(false);
+  const [newTask, setNewTask] = useState({
+    task: '',
+    date: '',
+    status: 'primary',
+  });
 
   useEffect(() => {
     getTasks().then((data) => {
@@ -18,6 +24,10 @@ function AppProvider({ children }) {
       value={{
         allTasks,
         setAlLTasks,
+        addSubmitted,
+        setAddSubmitted,
+        newTask,
+        setNewTask
       }}
     >
       { children }
