@@ -15,8 +15,12 @@ class ListService {
   }
 
   public async getById(id: number): Promise<List> {
-    const tasks = await this.model.getById(id);
-    return tasks;
+    const task = await this.model.getById(id);
+    return task;
+  }
+
+  public create(task: List): Promise<List> {
+    return this.model.create(task);
   }
 }
 
