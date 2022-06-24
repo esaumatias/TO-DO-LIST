@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import CardsTasks from '../../Components/CardsTasks/CardsTasks';
 
 function Home() {
 
@@ -14,6 +15,7 @@ function Home() {
             </Button>
           </Link>
         </div>
+        <CardsTasks />
     </Container>
   )
 }
