@@ -15,6 +15,14 @@ export default class ListModel {
     return rows as List[];
   }
 
+  public async getById(id: number): Promise<List> {
+    const result = await this.connection
+      .execute('SELECT * FROM tasks WHERE id=?', [id]);
+    const [rows] = result;
+    const [tasks] = rows as List[];
+    return tasks;
+  }
+
   public async create(list: List): Promise<List> {
     const { tasks, date, status } = list;
     const result = await this.connection.execute<ResultSetHeader>(

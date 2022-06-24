@@ -13,6 +13,11 @@ class ListService {
     const tasks = await this.model.getAll();
     return tasks;
   }
+
+  public async getById(id: number): Promise<List> {
+    const tasks = await this.model.getById(id);
+    return tasks;
+  }
 }
 
 export default ListService;

@@ -9,6 +9,18 @@ class ListController {
     const tasks = await this.listService.getAll();
     res.status(StatusCodes.OK).json(tasks);
   };
+
+  public getById = async (req: Request, res: Response) => {
+    const id = parseInt(req.params.id);
+    const tasks = await this.listService.getById(id);
+
+    if (!tasks) {
+      return res.status(StatusCodes.NOT_FOUND)
+        .json({ message: 'tasks not found!'});
+    }
+
+    res.status(StatusCodes.OK).json(tasks);
+  }
 }
 
 export default ListController;
