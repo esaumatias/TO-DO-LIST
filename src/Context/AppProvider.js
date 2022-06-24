@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AppContext from './AppContext';
-import { getTasks } from '../Services/FetchApi';
 
 function AppProvider({ children }) {
   const [allTasks, setAlLTasks] = useState({});
@@ -8,16 +7,8 @@ function AppProvider({ children }) {
   const [newTask, setNewTask] = useState({
     task: '',
     date: '',
-    status: 'primary',
+    status: 'success',
   });
-
-  useEffect(() => {
-    getTasks().then((data) => {
-      if(data.statusCode !== 400) {
-        setAlLTasks(data);
-      }
-    });
-  }, [setAlLTasks])
 
   return (
     <AppContext.Provider

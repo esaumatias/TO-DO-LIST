@@ -1,9 +1,17 @@
 import React, { useContext, useEffect } from 'react';
 import AppContext from '../../Context/AppContext';
-import { Card, Row, Col, Spinner } from 'react-bootstrap';
+import { getTasks } from '../../Services/FetchApi';
+import { Card, Row, Col, Spinner, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function CardsTasks() {
-    const { allTasks } = useContext(AppContext);
+    const { allTasks, setAlLTasks } = useContext(AppContext);
+
+    useEffect(() => {
+        getTasks().then((data) => {
+          setAlLTasks(data);
+        });
+    }, [setAlLTasks])
     
     return (
       <>
@@ -17,6 +25,12 @@ function CardsTasks() {
                     </Card.Body>
                     <Card.Footer style={{textAlign: "end"}}>
                         {value.date}
+                    <Button variant="primary" style={{backgroundColor: "transparent", border: "none"}}>
+                        <img src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png" alt="lixo"/>
+                    </Button>
+                    <Link variant="primary" to="/Editar">
+                        <img src="https://img.icons8.com/ios-glyphs/30/000000/pencil--v1.png" alt="editar" />
+                    </Link>
                     </Card.Footer>
                 </Card>
                 </Col>
