@@ -33,4 +33,12 @@ export default class ListModel {
     const { insertId } = dataInserted;
     return { id: insertId, ...list };
   }
+
+  public async update(id: number, list: List) {
+    const { tasks, date, status } = list;
+    await this.connection.execute(
+      'UPDATE tasks SET tasks=?, date=?, status=? WHERE id=?',
+      [tasks, date, status, id]
+    );
+  }
 }

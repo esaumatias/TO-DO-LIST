@@ -28,6 +28,14 @@ class ListController {
     const taskCreated = await this.listService.create(task);
     res.status(StatusCodes.CREATED).json(taskCreated);
   };
+
+  public update = async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    const task = req.body;
+    await this.listService.update(id, task);
+
+    res.status(StatusCodes.NO_CONTENT).end();
+  };
 }
 
 export default ListController;

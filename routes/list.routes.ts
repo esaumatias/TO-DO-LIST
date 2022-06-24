@@ -9,5 +9,6 @@ const listController = new ListController();
 router.get('/tasks', listController.getAll);
 router.get('/tasks/:id', listController.getById);
 router.post('/tasks/', validationTask, listController.create);
+router.put('/tasks/:id', validationTask, listController.update);
 
 export default router;
