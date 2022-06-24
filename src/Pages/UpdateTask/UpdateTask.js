@@ -3,7 +3,7 @@ import { Container, Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import Forms from '../../Components/Forms/Forms';
 
-function AddTasks() {
+function UpdateTask() {
 
   return (
     <Container>
@@ -15,14 +15,14 @@ function AddTasks() {
           marginBottom: "20px",
         }}
       >
-        <h1>Adicionar tarefa</h1>
+        <h1>Editar tarefa</h1>
         <Link to="/">
           <Button variant="dark">Voltar</Button>
         </Link>
       </div>
-      <Forms name="Tarefa criada" type="add"/>S
+      <Forms name="Tarefa atualizada" type="update" />
     </Container>
   );
 };
 
-export default AddTasks;
+export default UpdateTask;

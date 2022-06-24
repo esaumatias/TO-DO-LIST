@@ -36,7 +36,7 @@ function CardsTasks() {
                     <Button variant="primary" style={{backgroundColor: "transparent", border: "none"}} onClick={() => removeTask(value.id)}>
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png" alt="lixo"/>
                     </Button>
-                    <Link variant="primary" to="/Editar">
+                    <Link variant="primary" to={`/editar/${value.id}`}>
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/pencil--v1.png" alt="editar" />
                     </Link>
                     </Card.Footer>

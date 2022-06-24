@@ -45,3 +45,23 @@ export const getTasks = async () => {
       console.log(error);
     }
   };
+
+  export const update = async (id, task) => {
+    const { tasks, date, status } = task;
+    const URL = `http://localhost:8000/tasks/${id}`;
+    try {
+      const response = await fetch(URL, {
+        method: "PUT",
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+          tasks: tasks,
+          date: date,
+          status: status,
+        }),
+      });
+      const responseJSON = await response.json();
+      return responseJSON;
+    } catch (error) {
+      console.log(error);
+    }
+  };

@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
 import AppContext from "../../Context/AppContext";
-import { createTask } from "../../Services/FetchApi";
+import { createTask, update } from "../../Services/FetchApi";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import MyVerticallyCenteredModal from "../MyVerticallyCenteredModal/MyVerticallyCenteredModal";
 
-function Forms() {
+function Forms(props) {
   const { setAddSubmitted, newTask, setNewTask } = useContext(AppContext);
   const [modalShow, setModalShow] = useState(false);
+  const { id } = useParams();
+  const { name, type } = props;
 
   function handleTask({ target }) {
     const { name, value } = target;
@@ -16,13 +19,23 @@ function Forms() {
   }
 
   function submitInfos() {
-    createTask(newTask).then((data) => {
-      if (data.statusCode === 400) {
-        setAddSubmitted(false);
-      } else {
-        setAddSubmitted(true);
-      }
-    });
+    if (type === "update") {
+      update(id, newTask).then((data) => {
+        if (data.statusCode === 400) {
+          setAddSubmitted(false);
+        } else {
+          setAddSubmitted(true);
+        }
+      });
+    } else {
+      createTask(newTask).then((data) => {
+        if (data.statusCode === 400) {
+          setAddSubmitted(false);
+        } else {
+          setAddSubmitted(true);
+        }
+      });
+    }
     setModalShow(true);
     setNewTask({
       task: "",
@@ -88,7 +101,7 @@ function Forms() {
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-        name="Tarefa criada"
+        name={name}
       />
     </>
   );
