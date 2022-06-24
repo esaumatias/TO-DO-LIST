@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
-import Form from '../../Components/Form/Form';
+import Forms from '../../Components/Forms/Forms';
 
 function AddTasks() {
 
@@ -20,7 +20,7 @@ function AddTasks() {
           <Button variant="dark">Voltar</Button>
         </Link>
       </div>
-      <Form />
+      <Forms />
     </Container>
   );
 };

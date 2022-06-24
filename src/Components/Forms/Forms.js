@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import AppContext from "../../Context/AppContext";
 import { createTask } from "../../Services/FetchApi";
 import { Row, Col, Form, Button } from "react-bootstrap";
-import MyVerticallyCenteredModal from "../../Components/MyVerticallyCenteredModal/MyVerticallyCenteredModal";
+import MyVerticallyCenteredModal from "../MyVerticallyCenteredModal/MyVerticallyCenteredModal";
 
-function CardsTasks() {
+function Forms() {
   const { setAddSubmitted, newTask, setNewTask } = useContext(AppContext);
   const [modalShow, setModalShow] = useState(false);
 
@@ -94,4 +94,4 @@ function CardsTasks() {
   );
 }
 
-export default CardsTasks;
+export default Forms;
