@@ -36,6 +36,13 @@ class ListController {
 
     res.status(StatusCodes.NO_CONTENT).end();
   };
+
+  public remove = async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    await this.listService.remove(id);
+
+    res.status(StatusCodes.OK).json({ message: 'Task deleted successfully' });
+  };
 }
 
 export default ListController;

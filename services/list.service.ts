@@ -32,6 +32,15 @@ class ListService {
 
     return this.model.update(id, task);
   }
+
+  public async remove(id: number): Promise<void> {
+    const taskFound = await this.model.getById(id);
+    if (!taskFound) {
+      throw new NotFoundError('NotFoundError');
+    }
+
+    this.model.remove(id);
+  }
 }
 
 export default ListService;

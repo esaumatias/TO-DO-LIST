@@ -10,5 +10,6 @@ router.get('/tasks', listController.getAll);
 router.get('/tasks/:id', listController.getById);
 router.post('/tasks/', validationTask, listController.create);
 router.put('/tasks/:id', validationTask, listController.update);
+router.delete('/tasks/:id', listController.remove);
 
 export default router;

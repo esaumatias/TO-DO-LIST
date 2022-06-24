@@ -41,4 +41,11 @@ export default class ListModel {
       [tasks, date, status, id]
     );
   }
+
+  public async remove(id: number) {
+    await this.connection.execute(
+      'DELETE FROM tasks WHERE id=?',
+      [id],
+    );
+  }
 }
