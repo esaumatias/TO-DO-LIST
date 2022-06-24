@@ -24,12 +24,7 @@ class ListService {
     return this.model.create(task);
   }
 
-  public async update(id: number, task: List): Promise<void> {
-    const taskFound = await this.model.getById(id);
-    if (!taskFound) {
-      throw new NotFoundError('NotFoundError');
-    }
-
+  public async update(id: number, task: List): Promise<List> {
     return this.model.update(id, task);
   }
 

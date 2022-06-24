@@ -32,9 +32,9 @@ class ListController {
   public update = async (req: Request, res: Response) => {
     const id = Number(req.params.id);
     const task = req.body;
-    await this.listService.update(id, task);
-
-    res.status(StatusCodes.NO_CONTENT).end();
+    const taskUpdated = await this.listService.update(id, task);
+    
+    res.status(StatusCodes.CREATED).json(taskUpdated);
   };
 
   public remove = async (req: Request, res: Response) => {

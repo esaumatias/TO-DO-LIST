@@ -3,9 +3,11 @@ import { StatusCodes } from 'http-status-codes';
 import 'express-async-errors';
 import ListRoutes from './routes/list.routes';
 
+const cors = require("cors");
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 const PORT = 8000;
 

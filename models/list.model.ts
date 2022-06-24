@@ -40,6 +40,7 @@ export default class ListModel {
       'UPDATE tasks SET tasks=?, date=?, status=? WHERE id=?',
       [tasks, date, status, id]
     );
+    return { id, ...list };
   }
 
   public async remove(id: number) {
