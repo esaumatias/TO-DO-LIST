@@ -9,7 +9,7 @@ function Forms(props) {
   const { setAddSubmitted, newTask, setNewTask } = useContext(AppContext);
   const [modalShow, setModalShow] = useState(false);
   const { id } = useParams();
-  const { name, type } = props;
+  const { name, method } = props;
 
   function handleTask({ target }) {
     const { name, value } = target;
@@ -19,7 +19,7 @@ function Forms(props) {
   }
 
   function submitInfos() {
-    if (type === "update") {
+    if (method === "update") {
       update(id, newTask).then((data) => {
         if (data.statusCode === 400) {
           setAddSubmitted(false);
@@ -49,6 +49,18 @@ function Forms(props) {
     <>
       <Form>
         <Col className="align-items-center">
+          <Row
+            style={{ marginBottom: "15px" }}
+            sm="6"
+            className="my-1"
+            onChange={({ target }) => handleTask({ target })}
+          >
+            <Form.Label>
+              <strong>Assunto</strong>
+            </Form.Label>
+            <Form.Control placeholder="Assunto" name="title" />
+          </Row>
+
           <Row
             style={{ marginBottom: "15px" }}
             sm="6"

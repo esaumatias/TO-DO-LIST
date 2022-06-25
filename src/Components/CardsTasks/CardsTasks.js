@@ -26,22 +26,23 @@ function CardsTasks() {
         {allTasks.length > 0 ? (
             <Row xs={1} md={5} className="g-2">
             {allTasks.map((value, index) => (
-                <Col key={index}>
-                <Card bg={value.status} text='dark'>
-                    <Card.Body>
-                    <Card.Title>{value.tasks}</Card.Title>
-                    </Card.Body>
-                    <Card.Footer style={{textAlign: "end"}}>
-                        {value.date}
+              <Col key={index}>
+                <Card bg={value.status} text='light'>
+                  <Card.Body>
+                    <Card.Title>{value.title}</Card.Title>
+                    <Card.Text>{value.tasks}</Card.Text>
+                  </Card.Body>
+                  <Card.Footer style={{textAlign: "end"}}>
+                    {value.date}
                     <Button variant="primary" style={{backgroundColor: "transparent", border: "none"}} onClick={() => removeTask(value.id)}>
-                        <img src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png" alt="lixo"/>
+                      <img src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png" alt="lixo"/>
                     </Button>
                     <Link variant="primary" to={`/editar/${value.id}`}>
-                        <img src="https://img.icons8.com/ios-glyphs/30/000000/pencil--v1.png" alt="editar" />
+                      <img src="https://img.icons8.com/ios-glyphs/30/000000/pencil--v1.png" alt="editar" />
                     </Link>
-                    </Card.Footer>
+                  </Card.Footer>
                 </Card>
-                </Col>
+              </Col>
             ))}
             </Row>
         ) : <Spinner animation="border" />}

@@ -20,7 +20,7 @@ function UpdateTask() {
           <Button variant="dark">Voltar</Button>
         </Link>
       </div>
-      <Forms name="Tarefa atualizada" type="update" />
+      <Forms name="Tarefa atualizada" method="update" />
     </Container>
   );
 };

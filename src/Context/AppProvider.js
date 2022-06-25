@@ -6,6 +6,7 @@ function AppProvider({ children }) {
   const [addSubmitted, setAddSubmitted] = useState(false);
   const [newTask, setNewTask] = useState({
     task: '',
+    title: '',
     date: '',
     status: 'success',
   });

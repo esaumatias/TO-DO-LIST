@@ -20,7 +20,7 @@ function AddTasks() {
           <Button variant="dark">Voltar</Button>
         </Link>
       </div>
-      <Forms name="Tarefa criada" type="add"/>S
+      <Forms name="Tarefa criada" method="add"/>
     </Container>
   );
 };

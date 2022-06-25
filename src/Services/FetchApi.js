@@ -13,7 +13,7 @@ export const getTasks = async () => {
   };
 
   export const createTask = async (task) => {
-    const { tasks, date, status } = task;
+    const { tasks, date, status, title } = task;
     const URL = `http://localhost:8000/tasks`;
     try {
       const response = await fetch(URL, {
@@ -21,6 +21,7 @@ export const getTasks = async () => {
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
           tasks: tasks,
+          title: title,
           date: date,
           status: status,
         }),
@@ -47,7 +48,7 @@ export const getTasks = async () => {
   };
 
   export const update = async (id, task) => {
-    const { tasks, date, status } = task;
+    const { tasks, date, status, title } = task;
     const URL = `http://localhost:8000/tasks/${id}`;
     try {
       const response = await fetch(URL, {
@@ -55,6 +56,7 @@ export const getTasks = async () => {
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
           tasks: tasks,
+          title: title,
           date: date,
           status: status,
         }),
