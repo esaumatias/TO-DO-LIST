@@ -24,10 +24,10 @@ export default class ListModel {
   }
 
   public async create(list: List): Promise<List> {
-    const { tasks, date, status } = list;
+    const { title, tasks, date, status } = list;
     const result = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO tasks (tasks, date, status) VALUES (?, ?, ?)',
-      [tasks, date, status],
+      'INSERT INTO tasks (title, tasks, date, status) VALUES (?, ?, ?, ?)',
+      [title, tasks, date, status],
     );
     const [dataInserted] = result;
     const { insertId } = dataInserted;
@@ -35,10 +35,10 @@ export default class ListModel {
   }
 
   public async update(id: number, list: List) {
-    const { tasks, date, status } = list;
+    const { title, tasks, date, status } = list;
     await this.connection.execute(
-      'UPDATE tasks SET tasks=?, date=?, status=? WHERE id=?',
-      [tasks, date, status, id]
+      'UPDATE tasks SET title=?, tasks=?, date=?, status=? WHERE id=?',
+      [title, tasks, date, status, id]
     );
     return { id, ...list };
   }

@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import Task from '../interfaces/list.interface';
 
-const properties = ['tasks', 'date', 'status'];
+const properties = ['title', 'tasks', 'date', 'status'];
 
 function validateProperties(task: Task): [boolean, string | null] {
   for (let i = 0; i < properties.length; i += 1) {
