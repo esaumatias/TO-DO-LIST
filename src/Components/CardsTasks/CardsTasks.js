@@ -5,7 +5,7 @@ import { Card, Row, Col, Spinner, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function CardsTasks() {
-    const { allTasks, setAlLTasks } = useContext(AppContext);
+    const { allTasks, setAlLTasks, orderType } = useContext(AppContext);
 
     useEffect(() => {
         getTasks().then((data) => {
@@ -20,12 +20,22 @@ function CardsTasks() {
 				});
 			})
     }
+
+    function compare(a, b) {
+      if (a[orderType] < b[orderType]) {
+        return -1;
+      }
+      if (a[orderType] > b[orderType]) {
+        return 1;
+      }
+      return 0;
+    }
     
     return (
       <>
         {allTasks.length > 0 ? (
             <Row xs={1} md={5} className="g-2">
-            {allTasks.map((value, index) => (
+            {allTasks.sort(compare).map((value, index) => (
               <Col key={index}>
                 <Card bg={value.status} text='light'>
                   <Card.Body>

@@ -10,6 +10,7 @@ function AppProvider({ children }) {
     date: '',
     status: 'success',
   });
+  const [orderType, setOrderType] = useState('');
 
   return (
     <AppContext.Provider
@@ -19,7 +20,9 @@ function AppProvider({ children }) {
         addSubmitted,
         setAddSubmitted,
         newTask,
-        setNewTask
+        setNewTask,
+        orderType,
+        setOrderType
       }}
     >
       { children }
