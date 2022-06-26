@@ -9,7 +9,11 @@ function CardsTasks() {
 
     useEffect(() => {
         getTasks().then((data) => {
+         if (data.length > 0) {
           setAlLTasks(data);
+         } else {
+          setAlLTasks('');
+         }
         });
     }, [setAlLTasks])
 
@@ -55,7 +59,7 @@ function CardsTasks() {
               </Col>
             ))}
             </Row>
-        ) : <Spinner animation="border" />}
+        ) : <Spinner animation="border" style={{margin: 'auto'}} />}
       </>
     );
   }
