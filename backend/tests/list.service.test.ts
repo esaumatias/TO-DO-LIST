@@ -1,6 +1,6 @@
 import ListService from '../services/list.service';
 
-describe('Testando o List do Service', () => {
+describe('Testando a camada service do list', () => {
 
     const listService = new ListService();
 

@@ -9,8 +9,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const PORT = 8000;
-
 app.get('/', (req: Request, res: Response) => {
     res.status(StatusCodes.OK).send('Express + TypeScript')
 });
@@ -39,6 +37,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     next();
   });
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-});
+export default app;
