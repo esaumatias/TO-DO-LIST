@@ -6,6 +6,7 @@
 
 2. Crie um arquivo ```.env``` com a seguinte estrutura;
 
+    (
     ```DB_HOSTNAME=ESCREVAAQUI```
     
     ```DB_USER=ESCREVAAQUI```
@@ -15,6 +16,7 @@
     ```DB_DATABASE=tasks_api```
     
 
+
     ```TEST_DB_HOSTNAME=ESCREVAAQUI```
     
     ```TEST_DB_USER=ESCREVAAQUI```
@@ -22,10 +24,10 @@
     ```TEST_DB_PASSWORD=ESCREVAAQUI```
     
     ```TEST_DB_DATABASE=test_api```
-    
+    )
 
 3. Crie um banco de dados no MySql com o seguinte código:
-    
+    (
    ``` CREATE DATABASE IF NOT EXISTS tasks_api;```
 
     ```USE tasks_api;```
@@ -47,6 +49,6 @@
         ```PRIMARY KEY(id)```
         
     ```);```
-    
+       )
 
 4. Iniciar o projeto: ```npm start```;
