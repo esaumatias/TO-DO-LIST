@@ -4,7 +4,8 @@
 
 1. Instalar as dependência necessárias para o projeto: ```npm install```;
 
-2. Crie um arquivo ```.env``` com a seguinte estrutura:
+2. Crie um arquivo ```.env``` com a seguinte estrutura;
+
     ```DB_HOSTNAME=ESCREVAAQUI```
     ```DB_USER=ESCREVAAQUI```
     ```DB_PASSWORD=ESCREVAAQUI```
