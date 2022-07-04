@@ -2,6 +2,7 @@ import { Pool, ResultSetHeader } from 'mysql2/promise';
 import List from '../interfaces/list.interface';
 
 export default class ListModel {
+  [x: string]: any;
   public connection: Pool;
 
   constructor(connection: Pool) {
