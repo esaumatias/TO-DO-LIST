@@ -17,22 +17,25 @@ Foi desenvolvido um sistema capaz de auxiliar as pessoas colaboradoras a se orga
 ### Configurações para o teste
 
 1. Crie um banco de dados para os testes no MySql com o seguinte código:
+
+  ``````  
+    CREATE DATABASE IF NOT EXISTS test_api;
+
+    USE test_api;
+
+    CREATE TABLE IF NOT EXISTS  tasks
+    (
+        id INT NOT NULL AUTO_INCREMENT,
+        title VARCHAR(30) NOT NULL,
+        tasks VARCHAR(200) NOT NULL,
+        date VARCHAR(50) NOT NULL,
+        status VARCHAR(30) NOT NULL,
+        PRIMARY KEY(id)```
+    );
     
-    ```CREATE DATABASE IF NOT EXISTS test_api;```
-
-    ```USE test_api;```
-
-    ```CREATE TABLE IF NOT EXISTS  tasks```
-    ```(```
-        ```id INT NOT NULL AUTO_INCREMENT,```
-        ```title VARCHAR(30) NOT NULL,```
-        ```tasks VARCHAR(200) NOT NULL,```
-        ```date VARCHAR(50) NOT NULL,```
-        ```status VARCHAR(30) NOT NULL,```
-        ```PRIMARY KEY(id)```
-    ```);```
+   ``````
 
 2. Iniciar o testes: ```npm test```
 
 
-![alt text](./tarefa.png);
+![alt text](./tarefa.png)
